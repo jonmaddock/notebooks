@@ -1,0 +1,16 @@
+data/
+*.DAT
+!*IN.DAT
+machine.file.*
+slurm-*
+*.log
+*SIG_TF.json
+launch.json
+time.info
+*.svg
+*.out
+*.pdf
+campaigns/
+*.xml
+coffee_pce*/
+*.csv

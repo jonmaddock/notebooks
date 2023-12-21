@@ -1,0 +1,6 @@
+solver_pkg = "scipy"
+ftol_rel = 1e-0
+constr_tol = 1e-0
+# name = "GN_ISRES"
+# max_eval = 1e2
+# pop_size = None

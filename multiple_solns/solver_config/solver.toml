@@ -1,0 +1,3 @@
+solver_name = "scipy"
+ftol_rel = 1e-3
+constr_tol = 1e-3

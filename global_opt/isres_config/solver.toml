@@ -1,0 +1,6 @@
+solver_pkg = "nlopt"
+# ftol_rel = None
+constr_tol = 1e-3
+name = "GN_ISRES"
+max_eval = 1e3
+# pop_size = None

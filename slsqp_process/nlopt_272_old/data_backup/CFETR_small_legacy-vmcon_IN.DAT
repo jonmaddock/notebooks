@@ -1,0 +1,298 @@
+*****  CFETR input file for EU-CN collaboration
+*****
+*****  Based on 2014 paper by Son et al. "Concept design of CFETR tokamak machine"
+*****  http://ieeexplore.ieee.org/document/6716984/
+*****
+*****  James Morris
+*****  02/12/16
+*****
+****************************************************
+
+*---------------Constraint Equations---------------*
+
+neqns = 23       * Number of constraint equations
+icc = 1        * beta (consistency equation)
+icc = 2        * global power balance (consistency equation)
+*icc = 10       * toroidal field 1/r (consistency equation)
+icc = 36       * Temperature margin limit
+icc = 5        * density upper limit
+icc = 11       * radial build (consistency equation)
+icc = 56       * pseparatrix/rmajor upper limit
+icc = 30       * Max neutral beam power
+icc = 8        * neutron wall load upper limit
+icc = 31      * tf coil case stress upper limit (sctf)
+icc = 32      * tf coil conduit stress upper limit (sctf)
+icc = 35      * j_winding pack/j_protection upper limit (sctf)
+icc = 33      * i_op / i_critical (tf coil) (sctf)
+icc = 17      * radiation fraction upper limit
+icc = 34      * dump voltage upper limit (sctf)
+icc = 13      * burn time lower limit (pulse)
+icc = 15      * l-h power threshold limit
+icc = 26      * central solenoid eof current density upper limit
+icc = 27      * central solenoid bop current density upper limit
+icc = 62      * ratio of confinement times
+icc = 25      * Max TF coil field
+icc = 7       * beam ion density (nbi) (consistency equation)
+icc = 24      * beta upper limit
+icc = 9       * Fusion power upper limit
+
+*---------------Iteration Variables----------------*
+
+nvar      = 40       * Number of iteration variables
+ixc       = 4        * te * Volume averaged electron temperature (kev)
+boundl(4) = 3.00
+boundu(4) = 14.00
+
+ixc       = 3        * rmajor * Plasma major radius (m)
+boundl(3) = 5.699
+boundu(3) = 5.701
+
+ixc       = 5        * beta * Total plasma beta
+boundl(5) = 0.010
+boundu(5) = 1.000
+
+ixc       = 6        * dene * Electron density (/m3)
+boundl(6) = 0.90e+20
+boundu(6) = 1.13e+20
+
+ixc       = 9        * fdene * F-value for density limit
+boundl(9) = 0.001
+boundu(9) = 1.000
+
+ixc        = 48      * fstrcase * F-value for tf coil case stress
+boundl(48) = 0.001
+boundu(48) = 1.1
+
+ixc        = 49      * fstrcond * F-value for tf coil conduit stress
+boundl(49) = 0.001
+boundu(49) = 1.1
+
+ixc        = 97      * fpsepr * F-value for maximum psep/r limit
+boundl(97) = 0.001
+boundu(97) = 1.000
+
+ixc        = 26       * f-value for maximum fusion power (constraint equation 9 iteration variable 26)
+boundl(26) = 0.99
+boundu(26) = 1.00
+
+ixc       = 2        * bt * Toroidal field on axis (t) (iteration variable 2)
+boundl(2) = 4.475
+boundu(2) = 4.525
+
+ixc        = 46         * fpinj * f-value for max nbi power
+boundl(46) = 0.01
+boundu(46) = 1.00
+
+ixc       = 7          * rnbeam * Hot beam density / n_e (iteration variable 7)
+boundl(7) = 1e-06
+boundu(7) = 1.0
+
+ixc        = 60         * cpttf *  TF coil current per turn (A) (iteration variable 60)
+boundl(60) = 6.7e4
+boundu(60) = 6.8e4
+
+ixc        = 57         * thkcas * Inboard tf coil case outer (non-plasma side) thickness (m)
+boundl(57) = 0.05
+boundu(57) = 1.2
+
+ixc        = 51         * fvdump * F-value for dump voltage
+boundl(51) = 0.001
+boundu(51) = 1.0
+
+ixc        = 56         * tdmptf * Dump time for tf coil (s)
+boundl(56) = 2.0
+boundu(56) = 1000000.0
+
+ixc        = 14         * fwalld * F-value for maximum wall load
+boundl(14) = 0.001
+boundu(14) = 1.0
+
+ixc        = 50         * fiooic * F-value for tf coil operating current / critical
+boundl(50) = 0.001
+boundu(50) = 1.2
+
+ixc        = 53         * fjprot * F-value for tf coil winding pack current density
+boundl(53) = 0.001
+boundu(53) = 1.0
+
+ixc        = 18         * q * Safety factor 'near' plasma edge (iteration variable 18)
+boundl(18) = 2.9
+boundu(18) = 3.0
+
+ixc         = 102        * fimpvar * Impurity fraction to be used as fimp(impvar)
+boundl(102) = 0.0012
+boundu(102) = 0.01
+fimp(3) = 0.02   
+fimp(9) = 0.0016
+
+ixc         = 103        * flhthresh * F-value for l-h power threshold
+boundl(103) = 0.4
+boundu(103) = 1000000.0
+
+ixc         = 109        * ralpne
+boundl(109) = 0.005
+boundu(109) = 0.10
+
+ixc         = 110        * ftaulimit
+boundl(109) = 0.001
+boundu(109) = 1.0
+
+ixc        = 19         * enbeam
+boundl(19) = 100.0
+boundu(19) = 1000.0
+
+ixc        = 13         * tfcth * Inboard tf coil thickness; (centrepost for st) (m)
+boundl(13) = 0.85
+boundu(13) = 1.00
+
+ixc(27) = 28         * fradpwr * F-value for core radiation power limit
+boundl(28) = 0.001
+boundu(28) = 0.99
+
+ixc        = 37         * coheof * Central solenoid overall current density at end of flat-top (a/m2)
+boundl(37) = 100000.0
+boundu(37) = 100000000.0
+
+ixc        = 38         * fjohc * F-value for central solenoid current at end-of-flattop
+boundl(38) = 0.01
+boundu(38) = 1.0
+
+ixc        = 39         * fjohc0 * F-value for central solenoid current at beginning of pulse
+boundl(39) = 0.001
+boundu(39) = 1.0
+
+ixc        = 21         * ftburn * F-value for minimum burn time
+boundl(21) = 0.001
+boundu(21) = 1.0
+
+ixc         = 103        * flhthresh * F-value for l-h power threshold
+boundl(103) = 0.4
+boundu(103) = 1000000.0
+
+ixc        = 54         * ftmargtf * f-value for TF coil temp margin
+boundl(54) = 0.90
+boundu(54) = 1.20
+
+ixc        = 58         * thwcndut * Tf coil conduit case thickness (m)
+boundl(58) = 0.002
+boundu(58) = 1.0
+
+ixc        = 59         * fcutfsu * Copper fraction of cable conductor (tf coils)
+boundl(59) = 0.001
+boundu(59) = 1.0
+
+*ixc     = 12         * oacdcp * Overall current density in tf coil inboard legs (a/m2)
+*boundl(12) = 1000000.0
+*boundu(12) = 150000000.0
+
+ixc        = 58         * thwcndut * Tf coil conduit case thickness (m)
+boundl(58) = 0.002
+boundu(58) = 1.0
+
+ixc        = 35         * fpeakb * F-value for peak TF field on coil
+boundl(35) = 0.001
+boundu(35) = 1.000
+
+ixc        = 41         * fcohbop * Ratio of central solenoid overall current density at
+boundl(41) = 0.001
+boundu(41) = 1.0
+
+ixc        = 44         * fvsbrnni * Fraction of the plasma current produced by non-inductive means
+boundl(44) = 0.001
+boundu(44) = 1.0
+
+ixc        = 36         * fbetatry * F-value for beta limit
+boundl(36) = 0.001
+boundu(36) = 1.0
+
+*-----------------Build Variables------------------*
+
+*----- Build ----- Switches
+
+iprecomp = 0        * Switch for OH coil pre-compression structure
+
+*----- Build ----- Radial build
+
+bore     = 1.090    * Central solenoid inboard radius (m)
+ohcth    = 0.650    * Central solenoid thickness (m)
+gapoh    = 0.116    * Gap between central solenoid and tf coil (m)
+tfcth    = 0.874    * Inboard tf coil thickness (m)
+thshield_ib = 0.000    * TF-VV thermal shield thickness; inboard (m)
+thshield_ob = 0.000    * TF-VV thermal shield thickness; outboard (m)
+gapds    = 0.037    * Gap between inboard vacuum vessel and tf coil (m)
+d_vv_in  = 0.280    * Inboard vacuum vessel thickness (m)
+d_vv_out = 0.280    * Outboard vacuum vessel thickness (m)
+d_vv_top = 0.280    * Topside vacuum vessel thickness (m)
+d_vv_bot = 0.280    * Underside vacuum vessel thickness (m)
+shldith  = 0.300    * Inboard shield thickness (m)
+blnkith  = 0.432    * Inboard blanket thickness (m)
+scrapli  = 0.150    * Gap between plasma and first wall; inboard side (m)
+scraplo  = 0.150    * Gap between plasma and first wall; outboard side (m)
+blnkoth  = 1.132    * Inboard blanket thickness (m)
+*- Included blanket/shield -> vacuum vessel gap in shield thickness (m)
+shldoth  = 0.820    * Inboard shield thickness (m)
+gapomin  = 0.450    * Minimum gap between outboard vacuum vessel and tf coil (m)
+ddwex    = 0.150    * Cryostat thickness (m)
+
+*----- Build ----- Vertical build
+
+shldtth = 0.300    * Upper/lower shield thickness (m);
+vgap2   = 0.116    * Vertical gap between vacuum vessel and tf coil (m)
+thshield_vb = 0.000    * TF-VV thermal shield thickness; top and bottom (m)
+
+*----------------Cost Variables--------------------*
+
+cost_model   = 0   * 1990 costs model
+output_costs = 0   * Output costs switch
+iavail       = 1   * Switch for plant availabilit model
+
+*---------------Constraint Variables---------------*
+
+tbrnmn   = 200.0   * Minimum burn time (s)
+walalw   = 8.0     * Allowable wall-load (mw/m2)
+
+*--------------Current Drive Variables-------------*
+
+pinjalw = 100.0  * Allowable neutral beam current Drive (MW)
+enbeam = 800.0   * neutral beam energy (keV)
+
+*------------------Fwbs Variables------------------*
+
+iblanket  = 3      * Switch for blanket model
+li6enrich = 90.0   * lithium-6 enrichment of breeding material (%)
+tbrmin    = 1.0    * Minimum tritium breeding ratio
+
+*----------------Physics Variables-----------------*
+
+aspect   = 3.563     * Aspect ratio
+rmajor   = 5.700     * Plasma major radius (m)
+bt       = 4.5       * Toroidal field on axis (T)
+ishape   = 0         * Switch for plasma cross-sectional shape calculation
+kappa    = 1.8       * Plasma elongation
+triang   = 0.4       * Plasma separatrix triangularity
+ripmax   = 0.5       * maximum allowable toroidal field ripple amplitude at plasma edge (%)
+bscfmax  = 0.64      * Maximum fraction of plasma current from bootstrap
+hfact    = 1.3       * H factor on energy confinement times
+pseprmax = 17.0      * Maximum ratio of power crossing the separatrix to
+powfmax  = 250.0     * Maximum fusion power (MW)
+ignite   = 0         * Plasma not ignited
+iradloss = 1         * Radiation loss power allocation
+
+*---------------------Numerics---------------------*
+
+ioptimz = 1        * Code operation switch
+*minmax  = -5       * Switch for figure-of-merit - Fusion gain
+minmax  = 10       * Switch for figure-of-merit - Fusion gain
+epsvmc  = 1.0e-8   * Error tolerance for vmcon
+runtitle = "CFETR small (5.7m) reference file"
+
+*-----------------Tfcoil Variables-----------------*
+
+bmxlim = 12.0       * Max TF field on coil (T)
+cpttf   = 67.4e3     * TF coil current per turn (A)
+sig_tf_case_max  = 5.92E8 * Allowable maximum shear stress in TF coil case (Tresca criterion) (Pa)
+sig_tf_wp_max    = 5.92E8 * Allowable maximum shear stress in TF coil conduit (Tresca criterion) (Pa)
+tftmp   = 4.5        * Temperature for superconductor (K)
+tmargmin = 2.0       * Minimum temperature margin (K)
+tinstf = 0.005   * Ground wall insulation thickness (m)
+i_str_wp = 0 * str_tf_con_res is used for the critical surface
