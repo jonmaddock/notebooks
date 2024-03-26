@@ -14,3 +14,4 @@ campaigns/
 *.xml
 coffee_pce*/
 *.csv
+!feasible_ineqs_vmcon/*
