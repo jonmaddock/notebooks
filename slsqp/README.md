@@ -1,0 +1,1 @@
+Try to run SLSQP on STEP input files, which fail using the new VMCON.
