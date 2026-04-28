@@ -1,6 +1,5 @@
 data/
 *.DAT
-!*IN.DAT
 machine.file.*
 slurm-*
 *.log
@@ -15,3 +14,4 @@ campaigns/
 coffee_pce*/
 *.csv
 !feasible_ineqs_vmcon/*
+*.png
